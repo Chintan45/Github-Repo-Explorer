@@ -1,0 +1,2 @@
+REACT_APP_BASE_URL="https://api.github.com/graphql"
+REACT_APP_AUTH_TOKEN="bearer <replace_your_github_auth_token>"
