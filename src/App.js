@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { userQuery, githubQuery } from "./Query";
+import { userQuery, githubQuery, authnticationQuery } from "./Query";
 import github from "./db.js";
 import RepoInfo from "./components/RepoInfo";
 import QuerySearchBox from "./components/QuerySearchBox";
@@ -36,10 +36,9 @@ function App() {
       });
 
       const data = await response.json();
-      const { viewer, search } = data.data;
+      const { search } = data.data;
       const { edges: repos, repositoryCount: total, pageInfo } = search;
 
-      setViewer(viewer.name);
       setRepoList(repos);
       setTotalCount(total);
 
@@ -57,6 +56,26 @@ function App() {
       fetchData();
     }
   }, [fetchData, userName]);
+
+  const authenticate = async () => {
+    try {
+      const response = await fetch(github.baseURL, {
+        method: "POST",
+        headers: github.headers,
+        body: JSON.stringify(authnticationQuery),
+      });
+
+      const data = await response.json();
+      const viewer = data.data.viewer;
+
+      setViewer(viewer.name);
+    } catch (error){
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    authenticate();
+  }, [])
 
   const checkUserExists = async (userName) => {
     const queryText = JSON.stringify(userQuery(userName));

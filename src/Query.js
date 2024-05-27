@@ -43,4 +43,14 @@ const userQuery = (userName) => {
   }
 }
 
-  export { userQuery, githubQuery };
+const authnticationQuery = {
+  query: `
+    {
+      viewer {
+        name
+      }
+    }
+  `
+}
+
+  export { userQuery, githubQuery, authnticationQuery };
