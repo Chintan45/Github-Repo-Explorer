@@ -2,15 +2,15 @@
 
 ### Overview
 
-This project is a React application that utilizes GitHub's GraphQL API to search for repositories of a specific GitHub user. It allows users to enter a GitHub username, checks if the user exists, and then retrieves, displays and allows to explore a list of repositories belonging to that user.
+This project is a React application that utilizes GitHub's ***`GraphQL`*** API to search for repositories of a specific GitHub user. It allows users to enter a GitHub username, checks if the user exists, and then retrieves, displays and allows to explore a list of repositories belonging to that user.
 
 
 ### Installation
 
 1. **Clone the repository:**
     ```
-    git clone https://github.com/yourusername/github-user-repo-search.git
-    cd github-user-repo-search
+    git clone https://github.com/Chintan45/Github-Repo-Explorer.git
+    cd Github-Repo-Explorer
     ```
 
 2. **Install dependencies:**
